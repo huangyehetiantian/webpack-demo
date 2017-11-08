@@ -1,1 +1,2 @@
-console.log("第二个路径!fdsfdsafdasf")
+console.log("entry2")
+$('#gogo').html("Hello")

@@ -1,11 +1,24 @@
-body{
-    background:red;
-    color:white;
-    font-size:20px;
+/*! yandong版权所有 */
+body {
+  background: #000000;
+  color: white;
+  font-size: 20px;
 }
-.img{
-    width:300px;
-    height:300px;
-    background:url(http://192.168.1.147:9000/images/817a70a71e5d657c7b2a8920d95a38c1.png) center center no-repeat;/*file-loader解决图片路径不一致的问题*/
-    background-size:contain
+
+.img {
+  width: 300px;
+  height: 300px;
+  background: url(http://192.168.1.147:8000/images/817a70a71e5d657c7b2a8920d95a38c1.png) center center no-repeat;
+  /*file-loader解决图片路径不一致的问题*/
+  background-size: contain;
+  -webkit-transform: rotate(40deg);
+  transform: rotate(40deg);
+  -webkit-box-shadow: 1px 1px 0 rgba(0,0,0,0.7);
+  box-shadow: 1px 1px 0 rgba(0,0,0,0.7);
+}
+
+#gogo {
+  width: 300px;
+  height: 300px;
+  background: #2c4ba0;
 }
