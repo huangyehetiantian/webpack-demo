@@ -6,6 +6,7 @@ const extractText=require('extract-text-webpack-plugin');//在打包后的文件
 const PurifyCssplugin=require('purifycss-webpack');//删除项目中没有用到的css
 const entry=require('./webpack_config/entry_webpack.js');
 const webpack=require('webpack');
+const copyWebpackPlugin=require('copy-webpack-plugin');
 
 console.log(encodeURIComponent(process.env.type));
 
@@ -92,17 +93,34 @@ module.exports = {
       }),
       new uglify(),                                        //多个插件放逗号
       new htmlPlugin({
+          filename: 'index.html',
           minify:{
               removeAttributeQuotes:true  //去掉的是html模板页面的引号
           },
           hash:true,//防止缓存
           template:'./src/index.html'
       }),
+        new htmlPlugin({
+            filename: 'index2.html',
+            minify:{
+                removeAttributeQuotes:true  //去掉的是html模板页面的引号
+            },
+            chunks:['entry2.js'],
+            hash:true,//防止缓存
+            template:'./src/index2.html'
+        }),
       new extractText("css/index.css"),
       new PurifyCssplugin({
         paths:glob.sync(path.join(__dirname,'src/*.html')),
       }),
-       new webpack.BannerPlugin("yandong版权所有")
+     new webpack.BannerPlugin("yandong版权所有"),
+     new copyWebpackPlugin([                               //静态资源获取
+        {
+            from:__dirname+'/src/public',
+            to:'./public'
+        }
+     ]),
+    new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {                                              //配置前端简单的开发服务,并且支持热更新(3.5以上版本的都支持)||开发环境，代码不能压缩
         contentBase: path.join(__dirname, "dist") ,           //基本目录结构（想要更新的目标文件,需要绝对路径）
