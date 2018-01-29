@@ -1,2 +1,2 @@
 /*! yandong版权所有 */
-webpackJsonp([0],[,,,function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var c=t(4),o=(t.n(c),t(5));t.n(o);document.getElementById("box").innerHTML="这是一个webpack测试页面"},function(e,n){},function(e,n){}],[3]);
+webpackJsonp([0],[function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var c=t(1),o=(t.n(c),t(2));t.n(o);document.getElementById("box").innerHTML="这是一个webpack测试页面"},function(e,n){},function(e,n){}],[0]);
